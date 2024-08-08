@@ -15,6 +15,10 @@ app.get('/about', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'webs', 'about.html'))
 });
 
+app.get('/contact', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'webs', 'contact.html'))
+});
+
 app.listen(port, () => {
   console.log(`Servidor escuchando en http://localhost:${port}`);
 });
