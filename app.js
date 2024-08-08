@@ -1,22 +1,24 @@
 const express = require('express');
 const path = require('path');
+const Logger = require('./midelware.js');
 
 const app = express();
 const port = 3000;
 
 // Configura 'public' como el directorio de archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(Logger);
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'webs', 'index.html'));
 });
 
 app.get('/about', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'webs', 'about.html'))
+    res.sendFile(path.join(__dirname, 'public', 'webs', 'about.html'));
 });
 
 app.get('/contact', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'webs', 'contact.html'))
+    res.sendFile(path.join(__dirname, 'public', 'webs', 'contact.html'));
 });
 
 app.listen(port, () => {
